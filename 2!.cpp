@@ -1,5 +1,7 @@
 
 
+
+
 #include <iostream>
 using namespace std;
 
@@ -17,13 +19,12 @@ struct array {
 		n = A.n;
 		return *this;
  }
-  array &operator [] (const array &A, int size){   //размер массива []
+  array &operator [] (const array &A, int size, int k){   //размер массива []
   	m = size;
-    int * A = new int [2m];
-    for (int i = 0; i < m; i ++){
-      *(A + m + i) = *(A + i);
+    while (k >= m){
+      k -= m;
     }
-		return *this;
+		return *(A + k);
  }
 
 };
@@ -77,13 +78,15 @@ ostream &operator <<(ostream &out, const int &A)    // вывод <<
 int main (){
 
 int size;
-array A = new array [2*size];
+array A = new array [size];
 
 for (int i = 0; i < size; i++){
   cin >> *(A + i);
-  *(A + size + i) = *(A + i);
 }
 
+for (int i = 0; i < 3 * size; i++){
+  cout << *(A + i);
+}
 
 return 0;
 }
