@@ -164,6 +164,7 @@ ostream &operator <<(ostream &out, const double_vector &A)    // вывод
 
 int main() {
 
+   
     int size,x,pos,a,b;
     cin >> size;
 
@@ -173,31 +174,32 @@ int main() {
     }
 
     cin >> x;
-    push_back (x);
+    arr.push_back (x);
     for (int i = 0; i < size; i++){
       cout <<  *(arr + i);
     }
-    pop_back();
+    arr.pop_back();
 
-    push_front (x);
+    arr.push_front (x);
     for (int i = 0; i < size; i++){
       cout <<  *(arr + i);
     }
-    pop_front();
+    arr.pop_front();
 
     cin >> pos;
-    insert(x,pos);
+    arr.insert(x,pos);
     for (int i = 0; i < size; i++){
       cout <<  *(arr + i);
     }
 
-    erase(pos);
+    arr.erase(pos);
 
     cin >> a >> b;
-    erase_interval(a,b);
+    arr.erase_interval(a,b);
     for (int i = 0; i < size; i++){
       cout <<  *(arr + i);
     }
+
 
  return 0;
 }
